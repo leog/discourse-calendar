@@ -27,7 +27,7 @@ function stringToHexColor(str) {
 function loadFullCalendar() {
   return Promise.all([
     loadScript("/plugins/discourse-calendar/javascripts/fullcalendar-with-moment-timezone.min.js"),
-    loadScript(`https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale/${window.I18n.locale}.min.js`)
+    loadScript("/plugins/discourse-calendar/javascripts/fullcalendar-locale-es.js")
   ]);
 }
 

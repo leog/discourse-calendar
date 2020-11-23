@@ -25,10 +25,10 @@ function stringToHexColor(str) {
 }
 
 function loadFullCalendar() {
-  return loadScript(
-    "/plugins/discourse-calendar/javascripts/fullcalendar-with-moment-timezone.min.js",
-    `https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale/${window.I18n.locale}.min.js`
-  );
+  return Promise.all([
+    loadScript("/plugins/discourse-calendar/javascripts/fullcalendar-with-moment-timezone.min.js"),
+    loadScriot(`https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale/${window.I18n.locale}.min.js`)
+  ]);
 }
 
 function initializeDiscourseCalendar(api) {

@@ -26,7 +26,8 @@ function stringToHexColor(str) {
 
 function loadFullCalendar() {
   return loadScript(
-    "/plugins/discourse-calendar/javascripts/fullcalendar-with-moment-timezone.min.js"
+    "/plugins/discourse-calendar/javascripts/fullcalendar-with-moment-timezone.min.js",
+    `https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale/${window.I18n.locale}.min.js`
   );
 }
 
@@ -173,6 +174,7 @@ function initializeDiscourseCalendar(api) {
       $calendar.attr("data-calendar-show-add-to-calendar") !== "false";
 
     return new window.FullCalendar.Calendar($calendar[0], {
+      locale: window.I18n.locale,
       timeZone,
       timeZoneImpl: "moment-timezone",
       nextDayThreshold: "06:00:00",
